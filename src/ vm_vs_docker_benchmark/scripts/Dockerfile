@@ -1,8 +1,13 @@
 FROM python:3.10-slim
-RUN apt update && apt install -y sysbench git curl procps \
-    && pip install --upgrade pip \
-    && pip install jupyter matplotlib psutil
+
+RUN apt update && apt install -y curl procps && \
+    pip install --upgrade pip && \
+    pip install flask requests psutil
+
 WORKDIR /app
-COPY . .
-EXPOSE 8888
-CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--allow-root", "--NotebookApp.token=''"]
+COPY scripts /app/scripts
+WORKDIR /app/scripts
+
+EXPOSE 5000
+
+CMD ["python3", "run_snake_server.py"]
