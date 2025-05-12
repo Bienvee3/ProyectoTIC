@@ -6,21 +6,21 @@ Este proyecto evalúa y compara el rendimiento entre una máquina virtual (Virtu
 
 ## 📁 Estructura actual del proyecto
 
-`vm_vs_docker_benchmark/`
-├── `README.md`
-├── `requirements.txt`
-├── `.gitignore`
-├── `results/`
-│ ├── `benchmark_snake_vm.csv`
-│ └── `benchmark_snake_docker.csv`
-├── `notebooks/`
-│ └── `vm_vs_docker_comparison.ipynb`
-├── `scripts/`
-│ ├── `vm_setup.sh`
-│ ├── `docker_setup.sh`
-│ └── `Dockerfile`
-└── `snake_server/`
-└── `snake_server.py`
+vm_vs_docker_benchmark/
+├── README.md
+├── requirements.txt
+├── .gitignore
+├── results/
+│   ├── benchmark_snake_vm.csv
+│   └── benchmark_snake_docker.csv
+├── notebooks/
+│   └── vm_vs_docker_comparison.ipynb
+├── scripts/
+│   ├── vm_setup.sh
+│   ├── docker_setup.sh
+│   └── Dockerfile
+└── snake_server/
+    └── snake_server.py
 
 ---
 
