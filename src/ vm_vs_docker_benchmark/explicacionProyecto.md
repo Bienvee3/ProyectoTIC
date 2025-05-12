@@ -5,7 +5,7 @@ Este proyecto evalúa y compara el rendimiento entre una máquina virtual (Virtu
 ---
 
 ## 📁 Estructura actual del proyecto
-
+```
 vm_vs_docker_benchmark/
 ├── README.md
 ├── requirements.txt
@@ -21,7 +21,7 @@ vm_vs_docker_benchmark/
 │   └── Dockerfile
 └── snake_server/
     └── snake_server.py
-
+```
 ---
 
 ## ✅ Librerías necesarias
