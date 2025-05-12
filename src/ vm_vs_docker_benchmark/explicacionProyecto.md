@@ -27,14 +27,14 @@ vm_vs_docker_benchmark/
 ## ✅ Librerías necesarias
 
 El proyecto utiliza las siguientes librerías:
-
-`flask`
-`request`
-`psutil`
-`pandas`
-`matplotlib`
-`jupyter`
-
+```
+flask
+request
+psutil
+pandas
+matplotlib
+jupyter
+```
 
 ---
 
