@@ -61,7 +61,7 @@ Para comenzar, es necesario instalar todas las dependencias requeridas para el p
 
 Esto instalará todas las dependencias necesarias para que el servidor y las herramientas de benchmark funcionen correctamente.
 
-## Ejecución del Servidor Snake
+## 🚀 Ejecución del Servidor Snake
 
 El servidor Snake está ubicado en el archivo `snake_server.py`, dentro de la carpeta `vm_vs_docker_benchmark/snake_server/`. Sigue los siguientes pasos para ejecutar el servidor:
 
@@ -79,7 +79,49 @@ El servidor Snake está ubicado en el archivo `snake_server.py`, dentro de la ca
 
 Esto iniciará un servidor Flask en el puerto `5000`. El servidor estará en ejecución y podrás interactuar con él según sea necesario.
 
-## Benchmark y Análisis de Resultados
+## 📊 Benchmark y Análisis de Resultados
+
+- 📊 Ejecutar Benchmarks
+
+Asegúrate de tener el servidor en ejecución (ver paso anterior).
+
+En otra terminal, ejecuta el script de benchmark:
+
+```
+cd vm_vs_docker_benchmark
+python benchmark_snake.py
+```
+
+Este script medirá:
+
+🧠 Uso de CPU y RAM
+
+🕒 Tiempo de respuesta
+
+📈 Los resultados se guardan en:
+
+`results/benchmark_snake_vm.csv` (si se ejecuta en una VM)
+
+`results/benchmark_snake_docker.csv` (si se ejecuta en Docker)
+
+- 📈 Visualizar resultados
+
+Abre el notebook de Jupyter para analizar los resultados:
+
+```
+cd notebooks
+jupyter notebook vm_vs_docker_comparison.ipynb
+```
+
+- 🧪 Automatización del entorno
+
+Puedes usar los scripts incluidos para configurar automáticamente los entornos:
+
+```
+cd scripts
+bash vm_setup.sh        # Para configurar la VM
+bash docker_setup.sh    # Para Docker o WSL2
+```
 
 Los resultados del benchmark, como el uso de CPU, RAM, y otros parámetros de rendimiento, se guardan en archivos CSV. Estos resultados se encuentran en la carpeta:
 
@@ -102,7 +144,7 @@ Para visualizar y analizar estos resultados, se incluye un notebook de Jupyter e
 
 Este notebook contiene el código necesario para cargar y visualizar los resultados generados por el benchmark.
 
-## Scripts de Configuración Automática
+## 🧪 Scripts de Configuración Automática
 
 Para facilitar la instalación de las dependencias y la configuración del entorno, se incluyen scripts de configuración automática. Estos scripts permiten instalar las dependencias necesarias en una máquina virtual (VM) o un contenedor Docker.
 
