@@ -166,7 +166,7 @@ En el notebook `notebooks/vm_vs_docker_comparison.ipynb` se realiza una comparac
 A partir de los datos de `results/`, se genera la siguiente gráfica:
 
 <p align="center">
-  <img src="notebooks/vm_vs_docker_comparison.png" alt="Comparación de CPU: VM vs Docker" width="600"/>
+  <img src="src/ vm_vs_docker_benchmark/notebooks/vm_vs_docker_comparison.png" alt="Comparación de CPU: VM vs Docker" width="600"/>
 </p>
 
 ### 🔍 Interpretación
