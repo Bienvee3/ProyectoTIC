@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
 import random
 import time
 
@@ -14,6 +14,10 @@ def snake_game():
         'score': score,
         'time_elapsed': round(time.time() - start, 4)
     })
+
+@app.route('/play')
+def play_snake():
+    return render_template('snake.html')  # Renderiza el HTML con el juego
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
