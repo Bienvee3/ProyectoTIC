@@ -38,10 +38,6 @@ function changeDirection(event) {
         case "ArrowDown": if (dy === 0) { dx = 0; dy = 1; } break;
         case "ArrowLeft": if (dx === 0) { dx = -1; dy = 0; } break;
         case "ArrowRight": if (dx === 0) { dx = 1; dy = 0; } break;
-        case "w": if (dy === 0) { dx = 0; dy = -1; } break;
-        case "a": if (dy === 0) { dx = 0; dy = 1; } break;
-        case "s": if (dx === 0) { dx = -1; dy = 0; } break;
-        case "d": if (dx === 0) { dx = 1; dy = 0; } break;
     }
 }
 
