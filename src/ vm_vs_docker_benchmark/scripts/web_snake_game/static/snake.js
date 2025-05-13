@@ -1,60 +1,49 @@
-const canvas = document.getElementById('game');
-const ctx = canvas.getContext('2d');
-const box = 20;
-const canvasSize = 20;
-let snake = [{ x: 9 * box, y: 9 * box }];
-let food = {
-    x: Math.floor(Math.random() * canvasSize) * box,
-    y: Math.floor(Math.random() * canvasSize) * box
-};
-let direction;
-let score = 0;
+const canvas = document.getElementById("gameCanvas");
+const ctx = canvas.getContext("2d");
 
-document.addEventListener('keydown', event => {
-    if (event.key === 'ArrowUp' && direction !== 'DOWN') direction = 'UP';
-    else if (event.key === 'ArrowDown' && direction !== 'UP') direction = 'DOWN';
-    else if (event.key === 'ArrowLeft' && direction !== 'RIGHT') direction = 'LEFT';
-    else if (event.key === 'ArrowRight' && direction !== 'LEFT') direction = 'RIGHT';
-});
+let snake = [{ x: 10, y: 10 }];
+let food = { x: 15, y: 15 };
+let dx = 1, dy = 0;
+
+document.addEventListener("keydown", changeDirection);
+
+function changeDirection(event) {
+    switch (event.key) {
+        case "ArrowUp": if (dy === 0) { dx = 0; dy = -1; } break;
+        case "ArrowDown": if (dy === 0) { dx = 0; dy = 1; } break;
+        case "ArrowLeft": if (dx === 0) { dx = -1; dy = 0; } break;
+        case "ArrowRight": if (dx === 0) { dx = 1; dy = 0; } break;
+    }
+}
 
 function draw() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "black";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    for (let i = 0; i < snake.length; i++) {
-        ctx.fillStyle = i === 0 ? 'lime' : 'green';
-        ctx.fillRect(snake[i].x, snake[i].y, box, box);
+    ctx.fillStyle = "lime";
+    for (let part of snake) {
+        ctx.fillRect(part.x * 20, part.y * 20, 20, 20);
     }
 
-    ctx.fillStyle = 'red';
-    ctx.fillRect(food.x, food.y, box, box);
+    ctx.fillStyle = "red";
+    ctx.fillRect(food.x * 20, food.y * 20, 20, 20);
+}
 
-    let headX = snake[0].x;
-    let headY = snake[0].y;
+function update() {
+    const head = { x: snake[0].x + dx, y: snake[0].y + dy };
+    snake.unshift(head);
 
-    if (direction === 'LEFT') headX -= box;
-    if (direction === 'RIGHT') headX += box;
-    if (direction === 'UP') headY -= box;
-    if (direction === 'DOWN') headY += box;
-
-    // Game over
-    if (headX < 0 || headY < 0 || headX >= canvas.width || headY >= canvas.height || snake.some((s, i) => i !== 0 && s.x === headX && s.y === headY)) {
-        alert("💀 Game Over!");
-        document.location.reload();
-        return;
-    }
-
-    if (headX === food.x && headY === food.y) {
-        score++;
+    // Comer comida
+    if (head.x === food.x && head.y === food.y) {
         food = {
-            x: Math.floor(Math.random() * canvasSize) * box,
-            y: Math.floor(Math.random() * canvasSize) * box
+            x: Math.floor(Math.random() * (canvas.width / 20)),
+            y: Math.floor(Math.random() * (canvas.height / 20))
         };
     } else {
         snake.pop();
     }
 
-    const newHead = { x: headX, y: headY };
-    snake.unshift(newHead);
+    draw();
 }
 
-setInterval(draw, 100);
+setInterval(update, 100);
