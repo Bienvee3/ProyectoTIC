@@ -1,86 +1,137 @@
-# 📊 Proyecto de Evaluación Comparativa de Rendimiento: VM vs Docker
+# 🐍 Proyecto de Benchmark: VM vs Docker con un servidor Snake
 
-Este proyecto compara el uso de recursos y las métricas de rendimiento entre una máquina virtual completa (VirtualBox) y un contenedor Docker. El objetivo es identificar diferencias clave en eficiencia, rendimiento y adecuación según el contexto.
+Este proyecto evalúa y compara el rendimiento entre una máquina virtual (VirtualBox) y un contenedor Docker ejecutando un servidor Snake desarrollado en Flask y con una interfaz web interactiva.
 
----
+## 📁 Estructura actual del proyecto
 
-## 📚 Estructura Sugerida de Presentación del Proyecto
+``` cpp
+vm_vs_docker_benchmark/
+├── README.md
+├── requirements.txt
+├── .gitignore
+├── explicacionProyecto.md
+├── install.ipynb
+├── results/
+│   ├── benchmark_snake_vm.csv
+│   └── benchmark_snake_docker.csv
+├── notebooks/
+│   └── vm_vs_docker_comparison.ipynb
+├── scripts/
+│   ├── benchmark_snake.py
+│   ├── docker_setup.sh
+│   ├── vm_setup.sh
+│   ├── Dockerfile
+│   └── web_snake_game/
+│       ├── run_snake_server.py
+│       ├── templates/
+│       │   └── snake.html
+│       └── static/
+│           └── snake.js
+```
 
-1. **Introducción**  
-   ¿Qué son las máquinas virtuales y los contenedores? Explicación de conceptos clave.
+## ✅ Librerías necesarias
 
-2. **Configuración del Entorno de Prueba**  
-   - Especificaciones del host (CPU, RAM, SO)  
-   - Sistema operativo de la máquina virtual  
-   - Imagen base de Docker utilizada
+El proyecto utiliza las siguientes librerías de Python:
 
-3. **Métricas y Herramientas Utilizadas**  
-   - Qué se medirá y con qué herramientas
+``` bash
+flask
+requests
+psutil
+pandas
+matplotlib
+jupyter
+```
 
-4. **Resultados**  
-   - Tablas comparativas  
-   - Gráficos de barras, líneas o gráficos de radar (araña)
+## ⚙️ Requisitos
 
-5. **Análisis**  
-   - Fortalezas y debilidades de cada enfoque
+```
+Python 3.8+
 
-6. **Conclusión**  
-   - Recomendaciones sobre cuándo usar VM o Docker
+Docker
 
----
+VirtualBox (con Linux guest si aplica)
 
-## ✅ Métricas de Comparación Sugeridas
+pip
+```
 
-### 🔧 1. Uso de Recursos
-- **CPU**: Uso en reposo y bajo carga  
-- **Memoria RAM**: Consumo al ejecutar la misma aplicación  
-- **Espacio en disco**: Instalación base + aplicación + dependencias  
-**Herramientas:** `htop`, `top`, `docker stats`, `VBoxManage metrics`, `vmstat`
+## 📦 Instalación de dependencias
 
----
+Desde la raíz del proyecto:
 
-### ⚡ 2. Tiempo de Arranque / Inicio
-- Tiempo requerido para iniciar una VM vs iniciar un contenedor Docker  
-**Herramientas:** `systemd-analyze`, scripts `time`, diferencias de `date`
+``` bash
+pip install -r requirements.txt
+```
 
----
+## 🚀 Ejecutar el servidor Snake
 
-### 🚀 3. Pruebas de Rendimiento
-- **CPU**: `sysbench`, `stress-ng`, `Geekbench`  
-- **Disco (E/S)**: `fio`, `dd if=/dev/zero of=testfile bs=1G count=1 oflag=dsync`  
-- **Red**: `iperf3` (dentro y desde el host)
+Para iniciar el servidor Snake con interfaz web:
 
----
+```bash
+cd vm_vs_docker_benchmark/scripts/web_snake_game
+python run_snake_server.py
+```
 
-### 📦 4. Caso de Prueba de Aplicación
-Ejemplo: un servidor MySQL o una app Node.js  
-- Tiempo de implementación  
-- Rendimiento (solicitudes por segundo)  
-- Latencia  
-- Consumo de recursos bajo carga
+Esto abrirá un servidor Flask en http://localhost:5000/. Podrás acceder a la interfaz del juego desde un navegador en esa dirección.
 
----
 
-### 🔒 5. Aislamiento y Seguridad
-Evaluación cualitativa:  
-- Las VM ofrecen mejor aislamiento (núcleo separado)  
-- Docker es más eficiente pero menos aislado (comparte el kernel)  
-- Mencionar medidas de seguridad como `AppArmor`, `SELinux`
+## 🎮 Jugar Snake
 
----
+Visita:
 
-### ♻️ 6. Portabilidad y Flexibilidad
-Evaluación cualitativa:  
-- Facilidad para exportar/importar imágenes  
-- Soporte multiplataforma (Windows/macOS/Linux)  
-- Integración con flujos DevOps (CI/CD)
+``` arduino
+http://localhost:5000/play
+```
+Ahí podrás jugar una versión básica del juego Snake directamente desde el navegador.
 
----
+## 📊 Benchmark y Análisis de Resultados
 
-## 🧪 Contribuciones
-¡Se aceptan ideas, mejoras o pruebas adicionales! Puedes abrir un issue o hacer un pull request.
+- Ejecutar Benchmarks
 
----
+Asegúrate de que el servidor Snake esté corriendo. Luego, desde una nueva terminal:
 
-## 📄 Licencia
-Este proyecto está bajo la licencia MIT. Consulta el archivo `LICENSE` para más detalles.
+```bash
+cd vm_vs_docker_benchmark/scripts
+python benchmark_snake.py
+```
+Este script realiza:
+
+- 📈 Medición del uso de CPU y RAM
+
+- ⏱ Tiempo de respuesta de la aplicación
+
+Los resultados se guardan en:
+
+`results/benchmark_snake_vm.csv` (si se corre en una VM)
+
+`results/benchmark_snake_docker.csv` (si se corre en Docker)
+
+- Visualizar resultados
+  
+Abre el notebook:
+
+```bash
+cd vm_vs_docker_benchmark/notebooks
+jupyter notebook vm_vs_docker_comparison.ipynb
+```
+
+El notebook permite analizar los resultados con gráficos y estadísticas.
+
+## 🧪 Automatización del entorno
+
+Puedes usar los siguientes scripts para automatizar la instalación del entorno:
+
+```bash
+cd vm_vs_docker_benchmark/scripts
+bash vm_setup.sh         # Configuración para VM
+bash docker_setup.sh     # Configuración para Docker o WSL2
+```
+
+## 🗃️ Carpeta results/
+
+Contiene los archivos CSV generados por los benchmarks. Cada archivo incluye:
+
+- Latencia
+
+- Porcentaje de uso de CPU
+
+- Porcentaje de uso de memoria RAM
