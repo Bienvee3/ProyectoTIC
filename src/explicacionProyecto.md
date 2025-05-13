@@ -1,169 +1,137 @@
 # 🐍 Proyecto de Benchmark: VM vs Docker con un servidor Snake
 
-Este proyecto evalúa y compara el rendimiento entre una máquina virtual (VirtualBox) y un contenedor Docker ejecutando un servidor simple de juego Snake desarrollado en Flask.
-
----
+Este proyecto evalúa y compara el rendimiento entre una máquina virtual (VirtualBox) y un contenedor Docker ejecutando un servidor Snake desarrollado en Flask y con una interfaz web interactiva.
 
 ## 📁 Estructura actual del proyecto
-```
+
+``` cpp
 vm_vs_docker_benchmark/
 ├── README.md
 ├── requirements.txt
 ├── .gitignore
+├── explicacionProyecto.md
+├── install.ipynb
 ├── results/
 │   ├── benchmark_snake_vm.csv
 │   └── benchmark_snake_docker.csv
 ├── notebooks/
 │   └── vm_vs_docker_comparison.ipynb
 ├── scripts/
-│   ├── vm_setup.sh
+│   ├── benchmark_snake.py
 │   ├── docker_setup.sh
-│   └── Dockerfile
-└── snake_server/
-    └── snake_server.py
+│   ├── vm_setup.sh
+│   ├── Dockerfile
+│   └── web_snake_game/
+│       ├── run_snake_server.py
+│       ├── templates/
+│       │   └── snake.html
+│       └── static/
+│           └── snake.js
 ```
----
 
 ## ✅ Librerías necesarias
 
-El proyecto utiliza las siguientes librerías:
-```
+El proyecto utiliza las siguientes librerías de Python:
+
+``` bash
 flask
-request
+requests
 psutil
 pandas
 matplotlib
 jupyter
 ```
 
----
-
 ## ⚙️ Requisitos
 
-- Python 3.8+
-- Docker
-- VirtualBox (con Linux guest si aplica)
-- pip
+```
+Python 3.8+
 
----
+Docker
+
+VirtualBox (con Linux guest si aplica)
+
+pip
+```
 
 ## 📦 Instalación de dependencias
 
-Para comenzar, es necesario instalar todas las dependencias requeridas para el proyecto. Para hacerlo, sigue los siguientes pasos:
+Desde la raíz del proyecto:
 
-1. Abre una terminal.
-2. Navega a la carpeta raíz del proyecto.
-3. Ejecuta el siguiente comando para instalar todas las dependencias necesarias:
+``` bash
+pip install -r requirements.txt
+```
 
-    ```
-    pip install -r requirements.txt
-    ```
+## 🚀 Ejecutar el servidor Snake
 
-Esto instalará todas las dependencias necesarias para que el servidor y las herramientas de benchmark funcionen correctamente.
+Para iniciar el servidor Snake con interfaz web:
 
-## 🚀 Ejecución del Servidor Snake
+```bash
+cd vm_vs_docker_benchmark/scripts/web_snake_game
+python run_snake_server.py
+```
 
-El servidor Snake está ubicado en el archivo `snake_server.py`, dentro de la carpeta `vm_vs_docker_benchmark/snake_server/`. Sigue los siguientes pasos para ejecutar el servidor:
+Esto abrirá un servidor Flask en http://localhost:5000/. Podrás acceder a la interfaz del juego desde un navegador en esa dirección.
 
-1. Navega a la carpeta donde se encuentra el archivo del servidor:
 
-    ```
-    cd vm_vs_docker_benchmark/snake_server
-    ```
+## 🎮 Jugar Snake
 
-2. Ejecuta el servidor con el siguiente comando:
+Visita:
 
-    ```
-    python snake_server.py
-    ```
-
-Esto iniciará un servidor Flask en el puerto `5000`. El servidor estará en ejecución y podrás interactuar con él según sea necesario.
+``` arduino
+http://localhost:5000/play
+```
+Ahí podrás jugar una versión básica del juego Snake directamente desde el navegador.
 
 ## 📊 Benchmark y Análisis de Resultados
 
-- 📊 Ejecutar Benchmarks
+- Ejecutar Benchmarks
 
-Asegúrate de tener el servidor en ejecución (ver paso anterior).
+Asegúrate de que el servidor Snake esté corriendo. Luego, desde una nueva terminal:
 
-En otra terminal, ejecuta el script de benchmark:
-
-```
-cd vm_vs_docker_benchmark
+```bash
+cd vm_vs_docker_benchmark/scripts
 python benchmark_snake.py
 ```
+Este script realiza:
 
-Este script medirá:
+- 📈 Medición del uso de CPU y RAM
 
-🧠 Uso de CPU y RAM
+- ⏱ Tiempo de respuesta de la aplicación
 
-🕒 Tiempo de respuesta
+Los resultados se guardan en:
 
-📈 Los resultados se guardan en:
+`results/benchmark_snake_vm.csv` (si se corre en una VM)
 
-`results/benchmark_snake_vm.csv` (si se ejecuta en una VM)
+`results/benchmark_snake_docker.csv` (si se corre en Docker)
 
-`results/benchmark_snake_docker.csv` (si se ejecuta en Docker)
+- Visualizar resultados
+  
+Abre el notebook:
 
-- 📈 Visualizar resultados
-
-Abre el notebook de Jupyter para analizar los resultados:
-
-```
-cd notebooks
+```bash
+cd vm_vs_docker_benchmark/notebooks
 jupyter notebook vm_vs_docker_comparison.ipynb
 ```
 
-- 🧪 Automatización del entorno
+El notebook permite analizar los resultados con gráficos y estadísticas.
 
-Puedes usar los scripts incluidos para configurar automáticamente los entornos:
+## 🧪 Automatización del entorno
 
+Puedes usar los siguientes scripts para automatizar la instalación del entorno:
+
+```bash
+cd vm_vs_docker_benchmark/scripts
+bash vm_setup.sh         # Configuración para VM
+bash docker_setup.sh     # Configuración para Docker o WSL2
 ```
-cd scripts
-bash vm_setup.sh        # Para configurar la VM
-bash docker_setup.sh    # Para Docker o WSL2
-```
 
-Los resultados del benchmark, como el uso de CPU, RAM, y otros parámetros de rendimiento, se guardan en archivos CSV. Estos resultados se encuentran en la carpeta:
+## 🗃️ Carpeta results/
 
-`vm_vs_docker_benchmark/results/`
+Contiene los archivos CSV generados por los benchmarks. Cada archivo incluye:
 
+- Latencia
 
-Para visualizar y analizar estos resultados, se incluye un notebook de Jupyter en el proyecto. Sigue estos pasos para acceder al notebook y ver los análisis:
+- Porcentaje de uso de CPU
 
-1. Navega a la carpeta donde se encuentra el notebook:
-
-    ```
-    cd vm_vs_docker_benchmark/notebooks/
-    ```
-
-2. Abre el notebook de Jupyter con el siguiente comando:
-
-    ```
-    jupyter notebook vm_vs_docker_comparison.ipynb
-    ```
-
-Este notebook contiene el código necesario para cargar y visualizar los resultados generados por el benchmark.
-
-## 🧪 Scripts de Configuración Automática
-
-Para facilitar la instalación de las dependencias y la configuración del entorno, se incluyen scripts de configuración automática. Estos scripts permiten instalar las dependencias necesarias en una máquina virtual (VM) o un contenedor Docker.
-
-Para utilizar el script de configuración, sigue estos pasos:
-
-1. Navega a la carpeta `scripts`:
-
-    ```
-    cd scripts
-    ```
-
-2. Ejecuta el script de configuración con el siguiente comando:
-
-    ```
-    bash vm_setup.sh
-    ```
-
-Este script automatiza la instalación de todas las dependencias necesarias en tu entorno de trabajo (ya sea en una máquina virtual o Docker).
-
----
-
-Con estos pasos, tendrás todo lo necesario para ejecutar el servidor Snake, realizar pruebas de benchmark y analiza
+- Porcentaje de uso de memoria RAM
