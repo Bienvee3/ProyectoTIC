@@ -135,3 +135,56 @@ Contiene los archivos CSV generados por los benchmarks. Cada archivo incluye:
 - Porcentaje de uso de CPU
 
 - Porcentaje de uso de memoria RAM
+
+
+# Benchmark VM vs Docker 🐍
+
+Este proyecto compara el rendimiento de una misma carga de trabajo (`benchmark_snake`) ejecutada tanto en una máquina virtual (VM) como en un contenedor Docker.
+
+## 📁 Estructura del proyecto
+
+```bash
+├── results/
+│ ├── benchmark_snake_vm.csv
+│ └── benchmark_snake_docker.csv
+├── notebooks/
+│ └── vm_vs_docker_comparison.ipynb
+│ └── vm_vs_docker_comparison.png
+└── README.md
+```
+
+
+- `results/`: contiene los archivos CSV con los resultados de los benchmarks.
+- `notebooks/`: incluye notebooks de análisis y gráficos comparativos.
+
+---
+
+## 📓 Análisis en notebooks
+
+En el notebook `notebooks/vm_vs_docker_comparison.ipynb` se realiza una comparación del uso de CPU entre la ejecución en VM y en Docker.
+
+A partir de los datos de `results/`, se genera la siguiente gráfica:
+
+<p align="center">
+  <img src="notebooks/vm_vs_docker_comparison.png" alt="Comparación de CPU: VM vs Docker" width="600"/>
+</p>
+
+### 🔍 Interpretación
+
+- **VM CPU** (línea azul): presenta una mayor variabilidad y consumo promedio más alto de CPU.
+- **Docker CPU** (línea naranja): es más eficiente, con menor uso de CPU bajo la misma carga.
+
+Esto indica que **Docker es más liviano** para esta tarea, reduciendo el uso de recursos del sistema en comparación con una VM tradicional. Sin embargo, los resultados pueden variar según el contexto y carga específica.
+
+---
+
+## ▶️ Cómo reproducir
+
+1. Asegúrate de tener los siguientes archivos en la carpeta `results/`:
+   - `benchmark_snake_vm.csv`
+   - `benchmark_snake_docker.csv`
+2. Abre el archivo `notebooks/vm_vs_docker_comparison.ipynb`.
+3. Ejecuta el notebook para regenerar el gráfico.
+4. Opcional: guarda el gráfico como `vm_vs_docker_comparison.png` para incluirlo en reportes o el README.
+
+---
