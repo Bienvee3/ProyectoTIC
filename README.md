@@ -147,7 +147,7 @@ Contiene los archivos CSV generados por los benchmarks. Cada archivo incluye:
 
 Este proyecto compara el rendimiento de una misma carga de trabajo (`benchmark_snake`) ejecutada tanto en una máquina virtual (VM) como en un contenedor Docker.
 
-```bash
+```cpp
 ├── results/
 │ ├── benchmark_snake_vm.csv
 │ └── benchmark_snake_docker.csv
@@ -175,8 +175,8 @@ Se ejecutó un benchmark de 60 segundos sobre un juego Snake en Flask, midiendo 
     <td align="center"><strong>🐳 Docker</strong></td>
   </tr>
   <tr>
-    <td><img src="src/ vm_vs_docker_benchmark/results/benchmark vm.png" width="400"/></td>
-    <td><img src="src/ vm_vs_docker_benchmark/results/benchmark docker.png" width="400"/></td>
+    <td><img src="src/ vm_vs_docker_benchmark/results/benchmark_vm.png" width="400"/></td>
+    <td><img src="src/ vm_vs_docker_benchmark/results/benchmark_docker.png" width="400"/></td>
   </tr>
 </table>
 
@@ -204,3 +204,9 @@ Esto indica que **Docker es más liviano** para esta tarea, reduciendo el uso de
 
 ---
 
+### ✅ Logros del proyecto
+
+- [x] Juego Snake funcional con Flask
+- [x] Automatización en VM y Docker
+- [x] Benchmark comparativo con gráficos
+- [x] Análisis visual en notebooks
