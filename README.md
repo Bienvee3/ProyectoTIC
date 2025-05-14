@@ -5,28 +5,33 @@ Este proyecto evalúa y compara el rendimiento entre una máquina virtual (Virtu
 ## 📁 Estructura actual del proyecto
 
 ``` cpp
-vm_vs_docker_benchmark/
+.
 ├── README.md
-├── requirements.txt
-├── .gitignore
-├── explicacionProyecto.md
-├── install.ipynb
-├── results/
-│   ├── benchmark_snake_vm.csv
-│   └── benchmark_snake_docker.csv
-├── notebooks/
-│   └── vm_vs_docker_comparison.ipynb
-├── scripts/
-│   ├── benchmark_snake.py
-│   ├── docker_setup.sh
-│   ├── vm_setup.sh
-│   ├── Dockerfile
-│   └── web_snake_game/
-│       ├── run_snake_server.py
-│       ├── templates/
-│       │   └── snake.html
-│       └── static/
-│           └── snake.js
+├── enunciadoProyecto.md
+└── src/
+    ├── install.ipynb
+    └── vm_vs_docker_benchmark/
+        ├── requirements.txt
+        ├── .gitignore
+        ├── results/
+        │   ├── benchmark_snake_vm.csv
+        │   ├── benchmark_snake_docker.csv
+        │   ├── benchmark_vm.png
+        │   └── benchmark_docker.png
+        ├── notebooks/
+        │   ├── vm_vs_docker_comparison.ipynb
+        │   └── vm_vs_docker_comparison.png
+        ├── scripts/
+        │   ├── benchmark_snake.py
+        │   ├── docker_setup.sh
+        │   ├── vm_setup.sh
+        │   ├── Dockerfile
+        │   └── web_snake_game/
+        │       ├── run_snake_server.py
+        │       ├── templates/
+        │       │   └── snake.html
+        │       └── static/
+        │           └── snake.js
 ```
 
 ## ✅ Librerías necesarias
@@ -146,8 +151,8 @@ Este proyecto compara el rendimiento de una misma carga de trabajo (`benchmark_s
 ├── results/
 │ ├── benchmark_snake_vm.csv
 │ └── benchmark_snake_docker.csv
-│ └── benchmark docker.png
-│ └── benchmark vm.png
+│ └── benchmark_docker.png
+│ └── benchmark_vm.png
 ├── notebooks/
 │ └── vm_vs_docker_comparison.ipynb
 │ └── vm_vs_docker_comparison.png
