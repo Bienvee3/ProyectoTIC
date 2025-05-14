@@ -86,7 +86,7 @@ Visita:
 ``` arduino
 http://localhost:5000/play
 ```
-Ahí podrás jugar una versión básica del juego Snake directamente desde el navegador.
+Ahí podrás jugar una versión del juego Snake directamente desde el navegador despues de ejecutarlo en la terminal.
 
 ## 📊 Benchmark y Análisis de Resultados
 
