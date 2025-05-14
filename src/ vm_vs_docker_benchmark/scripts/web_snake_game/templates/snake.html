@@ -1,24 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>🎮 Snake Game</title>
-    <style>
-        body { text-align: center; font-family: sans-serif; }
-        canvas { background-color: black; display: none; margin-top: 20px; }
-        #gameOver { display: none; font-size: 24px; color: red; margin-top: 20px; }
-        button { margin-top: 10px; font-size: 16px; }
-    </style>
+  <meta charset="UTF-8" />
+  <title>🐍 Snake Game</title>
+  <style>
+    /* ——— Estilos generales ——— */
+    :root {
+      --bg-dark: #121212;
+      --blue: #0d47a1;
+      --blue-light: #1565c0;
+      --green: #43a047;
+      --green-light: #66bb6a;
+      --red: #e53935;
+      --panel: #2196f3;
+    }
+    *{box-sizing:border-box;margin:0;padding:0;font-family:Segoe UI,Arial,sans-serif}
+    body{background:var(--bg-dark);display:flex;flex-direction:column;align-items:center;padding:20px;color:#fff}
+    canvas{background:#000;border:2px solid #fff;display:none}
+
+    /* ——— MENÚ MODAL ——— */
+    .modal{
+      position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+      background:var(--panel);border-radius:8px;width:300px;text-align:center;
+      box-shadow:0 8px 24px rgba(0,0,0,.4);padding:20px 0;display:none}
+    .modal h2{margin-bottom:12px}
+    .stats{display:flex;justify-content:space-around;margin-bottom:16px;font-size:22px}
+    .stats div{display:flex;flex-direction:column;align-items:center}
+    .btn{width:80%;margin:6px auto;padding:10px;border:none;border-radius:6px;
+         font-size:16px;color:#fff;cursor:pointer;background:var(--blue)}
+    .btn:hover{background:var(--blue-light)}
+
+    /* ——— AJUSTES ——— */
+    #settingsPanel{display:none;flex-direction:column;gap:12px;margin-top:10px}
+    select, input[type="range"]{
+      width:80%;margin:0 auto;padding:6px;border:none;border-radius:4px;font-size:14px}
+    label{font-size:14px}
+
+    /* ——— GAME-OVER ——— */
+    #gameOver{display:none;margin-top:14px;font-size:22px;color:var(--red)}
+  </style>
 </head>
 <body>
-    <h1>🎮 Snake Game</h1>
-    <button id="startBtn">Jugar</button>
-    <canvas id="gameCanvas" width="400" height="400"></canvas>
-    <div id="gameOver">
-        <p>💀 Game Over</p>
-        <button onclick="startGame()">Reiniciar</button>
+  <h1 style="margin-bottom:10px;">🎮 Snake Game</h1>
+
+  <!-- Estadísticas en esquina (cuando juegas) -->
+  <div id="hud" style="display:none;margin-bottom:8px;">
+    <span id="appleCounter">🍎 0</span>
+    <span style="margin-left:12px;">⏩ Velocidad <span id="speedLabel"></span></span>
+  </div>
+
+  <!-- Lienzo del juego -->
+  <canvas id="gameCanvas" width="400" height="400"></canvas>
+
+  <!-- Botón flotante para pausar/reanudar -->
+  <button id="pauseBtn" class="btn" style="width:120px;position:fixed;bottom:24px;right:24px;display:none;">Pausa</button>
+
+  <!-- MENÚ PRINCIPAL -->
+  <div id="mainMenu" class="modal" style="display:block;">
+    <h2>Snake</h2>
+
+    <div class="stats">
+      <div><span id="statScore">0</span><small>🍎</small></div>
+      <div><span id="statBest">0</span><small>🏆</small></div>
     </div>
 
-    <script src="{{ url_for('static', filename='snake.js') }}"></script>
+    <button id="playBtn" class="btn">Jugar</button>
+    <button id="settingsBtn" class="btn" style="background:var(--green);">Ajustes</button>
+
+    <!-- Panel de Ajustes -->
+    <div id="settingsPanel">
+      <label>Tamaño mapa</label>
+      <select id="mapSize">
+        <option value="15">Pequeño (15×15)</option>
+        <option value="20" selected>Medio (20×20)</option>
+        <option value="25">Grande (25×25)</option>
+      </select>
+
+      <label>Nº de comidas simultáneas</label>
+      <select id="foodCount">
+        <option value="1">1</option>
+        <option value="3">3</option>
+        <option value="5" selected>5</option>
+        <option value="0">Aleatorio (1-5)</option>
+      </select>
+
+      <label>Velocidad</label>
+      <input id="speedRange" type="range" min="50" max="200" step="25" value="100">
+      <small id="speedDisplay">Normal</small>
+    </div>
+
+    <div id="gameOver">¡Has perdido!</div>
+  </div>
+
+  <script src="{{ url_for('static', filename='snake.js') }}"></script>
 </body>
 </html>
