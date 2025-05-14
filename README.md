@@ -146,6 +146,8 @@ Este proyecto compara el rendimiento de una misma carga de trabajo (`benchmark_s
 ├── results/
 │ ├── benchmark_snake_vm.csv
 │ └── benchmark_snake_docker.csv
+│ └── benchmark docker.png
+│ └── benchmark vm.png
 ├── notebooks/
 │ └── vm_vs_docker_comparison.ipynb
 │ └── vm_vs_docker_comparison.png
@@ -157,6 +159,24 @@ Este proyecto compara el rendimiento de una misma carga de trabajo (`benchmark_s
 - `notebooks/`: incluye notebooks de análisis y gráficos comparativos.
 
 ---
+
+## 📊 Comparativa de Rendimiento: VM vs Docker
+
+Se ejecutó un benchmark de 60 segundos sobre un juego Snake en Flask, midiendo el rendimiento del entorno bajo carga desde dos contextos distintos:
+
+<table>
+  <tr>
+    <td align="center"><strong>🖥️ Virtual Machine</strong></td>
+    <td align="center"><strong>🐳 Docker</strong></td>
+  </tr>
+  <tr>
+    <td><img src="src/ vm_vs_docker_benchmark/results/benchmark vm.png" width="400"/></td>
+    <td><img src="src/ vm_vs_docker_benchmark/results/benchmark docker.png" width="400"/></td>
+  </tr>
+</table>
+
+🔬 Los resultados muestran que ambos entornos tienen un comportamiento muy similar, aunque la VM tuvo una leve mayor carga de CPU.
+
 
 ## 📓 Análisis en notebooks
 
