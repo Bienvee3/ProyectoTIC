@@ -156,7 +156,6 @@ Este proyecto compara el rendimiento de una misma carga de trabajo (`benchmark_s
 ├── notebooks/
 │ └── vm_vs_docker_comparison.ipynb
 │ └── vm_vs_docker_comparison.png
-└── README.md
 ```
 
 
