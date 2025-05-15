@@ -89,6 +89,16 @@ Desde la raíz del proyecto:
 pip install -r requirements.txt
 ```
 
+## 🧪 Automatización del entorno
+
+Puedes usar los siguientes scripts para automatizar la instalación del entorno:
+
+```bash
+cd vm_vs_docker_benchmark/scripts
+bash vm_setup.sh         # Configuración para VM
+bash docker_setup.sh     # Configuración para Docker o WSL2
+```
+
 ## 🚀 Ejecutar el servidor Snake
 
 Para iniciar el servidor Snake con interfaz web:
@@ -161,15 +171,6 @@ El script `benchmark_snake.py` mide las siguientes métricas:
 
 ---
 
-## 🧪 Automatización del entorno
-
-Puedes usar los siguientes scripts para automatizar la instalación del entorno:
-
-```bash
-cd vm_vs_docker_benchmark/scripts
-bash vm_setup.sh         # Configuración para VM
-bash docker_setup.sh     # Configuración para Docker o WSL2
-```
 
 ## 🗃️ Carpeta results/
 
