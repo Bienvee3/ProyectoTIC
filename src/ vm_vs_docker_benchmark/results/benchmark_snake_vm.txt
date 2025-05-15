@@ -1,0 +1,17 @@
+📊 RESUMEN DEL BENCHMARK
+📁 Entorno: VM — E:\TrabajosUni\TIC\ProyectoFinal\ProyectoTIC\src\ vm_vs_docker_benchmark
+🧠 RAM promedio: 49.73%
+⚙️  CPU promedio: 63.28%
+⏱️  Latencia promedio: 2188.64 ms
+🔺 Latencia máx: 2635.15 ms
+🔻 Latencia mín: 2049.20 ms
+🔥 CPU máx: 96.40%
+🧊 CPU mín: 28.60%
+📈 RAM máx: 50.60%
+📉 RAM mín: 49.20%
+💾 Tamaño del entorno en disco: 0.19 MB
+📨 Total de peticiones: 25
+❌ Errores: 0 (0.00%)
+🌐 Tráfico de red: 0.00 MB
+⏱️  Tiempo total medido: 123.13 segundos
+✅ CSV guardado en: ../results/benchmark_snake_vm.csv

@@ -1,0 +1,17 @@
+📊 RESUMEN DEL BENCHMARK
+📁 Entorno: Docker — E:\TrabajosUni\TIC\ProyectoFinal\ProyectoTIC\src\ vm_vs_docker_benchmark
+🧠 RAM promedio: 51.15%
+⚙️  CPU promedio: 57.39%
+⏱️  Latencia promedio: 2196.70 ms
+🔺 Latencia máx: 2647.02 ms
+🔻 Latencia mín: 2043.87 ms
+🔥 CPU máx: 93.10%
+🧊 CPU mín: 28.00%
+📈 RAM máx: 51.70%
+📉 RAM mín: 50.70%
+💾 Tamaño del entorno en disco: 0.19 MB
+📨 Total de peticiones: 24
+❌ Errores: 0 (0.00%)
+🌐 Tráfico de red: 0.00 MB
+⏱️  Tiempo total medido: 64.10 segundos
+✅ CSV guardado en: ../results/benchmark_snake_docker.csv
