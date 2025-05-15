@@ -16,6 +16,8 @@ Este proyecto evalúa y compara el rendimiento entre una máquina virtual (Virtu
 - **Host**: Intel Core i3 9100F, 16 GB RAM, Windows 10
 - **Virtual Machine (Guest)**: Ubuntu 20.04, 4 GB RAM, 2 vCPU, VirtualBox 7
 - **Docker**: Imagen base `python:3.10-slim`, 2 CPUs asignadas
+- **Red y conexión**: Ambas plataformas usan red NAT para conectarse al host.
+El servidor Flask se expone en localhost:5000 para acceder desde el navegador
 
 ---
 
