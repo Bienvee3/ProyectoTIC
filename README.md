@@ -233,9 +233,9 @@ A partir de los datos de `results/`, se genera la siguiente gráfica:
   <img src="src/ vm_vs_docker_benchmark/notebooks/vm_vs_docker_comparison.png" alt="Comparación de CPU: VM vs Docker" width="600"/>
 </p>
 
----
 
-### 🔍 Interpretación
+## 🔍 Interpretación
+
 
 - **VM CPU** (línea azul): presenta una mayor variabilidad y consumo promedio más alto de CPU.
 - **Docker CPU** (línea naranja): es más eficiente, con menor uso de CPU bajo la misma carga.
