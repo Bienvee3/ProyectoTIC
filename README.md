@@ -2,6 +2,23 @@
 
 Este proyecto evalúa y compara el rendimiento entre una máquina virtual (VirtualBox) y un contenedor Docker ejecutando un servidor Snake desarrollado en Flask y con una interfaz web interactiva.
 
+---
+
+## 🧠 Conceptos clave: VM vs Docker
+
+- **Máquinas virtuales (VM):** Emulan hardware completo con su propio sistema operativo. Aíslan por completo los entornos.
+- **Contenedores (Docker):** Comparten el kernel del host, son más ligeros y rápidos, pero con menor aislamiento.
+
+---
+
+## ⚙️ Entorno de Pruebas
+
+- **Host**: Intel Core i3 9100F, 16 GB RAM, Windows 10
+- **Virtual Machine (Guest)**: Ubuntu 20.04, 4 GB RAM, 2 vCPU, VirtualBox 7
+- **Docker**: Imagen base `python:3.10-slim`, 2 CPUs asignadas
+
+---
+
 ## 📁 Estructura actual del proyecto
 
 ``` cpp
@@ -34,6 +51,8 @@ Este proyecto evalúa y compara el rendimiento entre una máquina virtual (Virtu
         │           └── snake.js
 ```
 
+---
+
 ## ✅ Librerías necesarias
 
 El proyecto utiliza las siguientes librerías de Python:
@@ -46,6 +65,7 @@ pandas
 matplotlib
 jupyter
 ```
+---
 
 ## ⚙️ Requisitos
 
@@ -120,6 +140,24 @@ jupyter notebook vm_vs_docker_comparison.ipynb
 ```
 
 El notebook permite analizar los resultados con gráficos y estadísticas.
+
+---
+
+### 📐 Métricas Medidas
+
+El script `benchmark_snake.py` mide las siguientes métricas:
+
+- **Uso de CPU (%)**: mediante `psutil`
+- **Uso de RAM (%)**: mediante `psutil`
+- **Latencia (ms)**: usando `requests` con timestamps
+- **Frecuencia de respuesta**: número de respuestas por segundo
+
+**Métricas no implementadas (fuera del alcance del proyecto):**
+
+- Tiempo de arranque del entorno
+- Rendimiento de red o disco
+
+---
 
 ## 🧪 Automatización del entorno
 
@@ -201,6 +239,14 @@ A partir de los datos de `results/`, se genera la siguiente gráfica:
 
 Esto indica que **Docker es más liviano** para esta tarea, reduciendo el uso de recursos del sistema en comparación con una VM tradicional. Sin embargo, los resultados pueden variar según el contexto y carga específica.
 
+
+## 🔒 Aislamiento, Seguridad y Portabilidad
+
+- **Aislamiento**: Las máquinas virtuales ofrecen aislamiento completo a nivel de kernel, ideal para entornos críticos.
+- **Contenedores**: Docker es más ligero y rápido, pero menos aislado. Comparte el kernel con el host.
+- **Seguridad**: No se evaluaron mecanismos como AppArmor o SELinux, aunque Docker los soporta.
+- **Portabilidad**: Docker destaca en despliegue CI/CD, compatibilidad multiplataforma y versionado.
+
 ---
 
 ### ✅ Logros del proyecto
@@ -209,3 +255,8 @@ Esto indica que **Docker es más liviano** para esta tarea, reduciendo el uso de
 - [x] Automatización en VM y Docker
 - [x] Benchmark comparativo con gráficos
 - [x] Análisis visual en notebooks
+
+---
+
+#### 📄 Licencia  
+Este proyecto está bajo la licencia MIT. Consulta el archivo LICENSE para más detalles.
