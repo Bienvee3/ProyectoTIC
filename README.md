@@ -211,8 +211,8 @@ Se ejecutó un benchmark de 60 segundos sobre un juego Snake en Flask, midiendo 
 
 <table>
   <tr>
-    <td align="center"><strong>🖥️ Virtual Machine</strong></td>
-    <td align="center"><strong>🐳 Docker</strong></td>
+    <td align="center"><strong>🖥️ Virtual Machine 14/05</strong></td>
+    <td align="center"><strong>🐳 Docker 14/05</strong></td>
   </tr>
   <tr>
     <td><img src="src/ vm_vs_docker_benchmark/results/benchmark_vm.png" width="400"/></td>
