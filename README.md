@@ -38,6 +38,7 @@ Los contenedores, como los gestionados por Docker, son una forma más ligera de 
 
 En este proyecto se compara el rendimiento y uso de recursos de un servidor Snake corriendo en ambos entornos: una máquina virtual tradicional y un contenedor Docker. Esto permite evaluar qué opción es más eficiente y adecuada para aplicaciones web sencillas, así como entender el impacto de cada tecnología en el rendimiento y la experiencia de usuario.
 
+---
 
 ## ⚙️ Entorno de Pruebas
 
@@ -62,9 +63,11 @@ El servidor Flask se expone en localhost:5000 para acceder desde el navegador
         ├── .gitignore
         ├── results/
         │   ├── benchmark_snake_vm.csv
-        │   ├── benchmark_snake_docker.csv
         │   ├── benchmark_vm.png
-        │   └── benchmark_docker.png
+        │   ├── benchmark_vm.txt
+        │   ├── benchmark_snake_docker.csv
+        │   ├── benchmark_docker.png
+        │   └── benchmark_docker.txt
         ├── notebooks/
         │   ├── vm_vs_docker_comparison.ipynb
         │   └── vm_vs_docker_comparison.png
@@ -81,6 +84,7 @@ El servidor Flask se expone en localhost:5000 para acceder desde el navegador
         │           └── snake.js
 ```
 
+---
 
 ## 📚 Bibliografía y Recursos
 
@@ -109,6 +113,7 @@ A continuación, se presentan las principales herramientas, librerías y recurso
   Instalación: `pip install notebook`  
   Documentación: [jupyter.org](https://jupyter.org/)
 
+---
 
 ## ⚙️ Requisitos
 
@@ -121,6 +126,9 @@ VirtualBox (con Linux guest si aplica)
 
 pip
 ```
+
+---
+
 ## ✅ Librerías necesarias
 
 El proyecto utiliza las siguientes librerías de Python:
@@ -133,6 +141,7 @@ pandas
 matplotlib
 jupyter
 ```
+---
 
 ## 📦 Instalación de dependencias
 
@@ -141,6 +150,8 @@ Desde la raíz del proyecto:
 ``` bash
 pip install -r requirements.txt
 ```
+
+---
 
 ## 🧪 Automatización del entorno
 
@@ -151,6 +162,8 @@ cd vm_vs_docker_benchmark/scripts
 bash vm_setup.sh         # Configuración para VM
 bash docker_setup.sh     # Configuración para Docker o WSL2
 ```
+
+---
 
 ## 🚀 Ejecutar el servidor Snake
 
@@ -163,6 +176,7 @@ python run_snake_server.py
 
 Esto abrirá un servidor Flask en http://localhost:5000/. Podrás acceder a la interfaz del juego desde un navegador en esa dirección.
 
+---
 
 ## 🎮 Jugar Snake
 
@@ -172,6 +186,8 @@ Visita:
 http://localhost:5000/play
 ```
 Ahí podrás jugar una versión del juego Snake directamente desde el navegador despues de ejecutarlo en la terminal.
+
+---
 
 ## 📊 Benchmark y Análisis de Resultados
 
@@ -262,19 +278,33 @@ Este proyecto compara el rendimiento de una misma carga de trabajo (`benchmark_s
 
 Se ejecutó un benchmark de 60 segundos sobre un juego Snake en Flask, midiendo el rendimiento del entorno bajo carga desde dos contextos distintos:
 
-<table>
-  <tr>
-    <td align="center"><strong>🖥️ Virtual Machine 14/05</strong></td>
-    <td align="center"><strong>🐳 Docker 14/05</strong></td>
-  </tr>
-  <tr>
-    <td><img src="src/ vm_vs_docker_benchmark/results/benchmark_vm.png" width="400"/></td>
-    <td><img src="src/ vm_vs_docker_benchmark/results/benchmark_docker.png" width="400"/></td>
-  </tr>
-</table>
+### 📅 Resultados del 14/05
 
-🔬 Los resultados muestran que ambos entornos tienen un comportamiento muy similar, aunque la VM tuvo una leve mayor carga de CPU.
+| 🖥️ Virtual Machine 14/05 | 🐳 Docker 14/05 |
+|--------------------------|------------------|
+| ![VM 14/05](src/%20vm_vs_docker_benchmark/results/benchmark_vm_14_05.png) | ![Docker 14/05](src/%20vm_vs_docker_benchmark/results/benchmark_docker_14_05.png) |
 
+🔎 **Observaciones 14/05**:
+
+- Ambos entornos muestran un rendimiento muy similar.
+- Docker presenta una ligera ventaja en el uso de CPU.
+- La VM tiene una mayor variabilidad en consumo.
+
+---
+
+### 📅 Resultados del 15/05
+
+| 🖥️ Virtual Machine 15/05 | 🐳 Docker 15/05 |
+|---------------------------|-----------------|
+| ![VM 15/05](src/%20vm_vs_docker_benchmark/results/benchmark_vm_15_05.png) | ![Docker 15/05](src/%20vm_vs_docker_benchmark/results/benchmark_docker_15_05.png) |
+
+🔎 **Observaciones 15/05**:
+
+- Docker mantiene un comportamiento más estable en consumo de CPU y RAM.
+- La VM sigue siendo más pesada en carga aunque mejora respecto a la prueba del 14/05.
+- Latencias más consistentes en Docker.
+
+---
 
 ## 📓 Análisis en notebooks
 
@@ -286,6 +316,7 @@ A partir de los datos de `results/`, se genera la siguiente gráfica:
   <img src="src/ vm_vs_docker_benchmark/notebooks/vm_vs_docker_comparison.png" alt="Comparación de CPU: VM vs Docker" width="600"/>
 </p>
 
+---
 
 ## 🔍 Interpretación
 
@@ -295,6 +326,7 @@ A partir de los datos de `results/`, se genera la siguiente gráfica:
 
 Esto indica que **Docker es más liviano** para esta tarea, reduciendo el uso de recursos del sistema en comparación con una VM tradicional. Sin embargo, los resultados pueden variar según el contexto y carga específica.
 
+---
 
 ## 🔒 Aislamiento y Seguridad en este Proyecto
 En el contexto de este proyecto, el aislamiento se evaluó al ejecutar un mismo servidor Snake en dos entornos:
