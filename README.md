@@ -39,33 +39,6 @@ Los contenedores, como los gestionados por Docker, son una forma más ligera de 
 En este proyecto se compara el rendimiento y uso de recursos de un servidor Snake corriendo en ambos entornos: una máquina virtual tradicional y un contenedor Docker. Esto permite evaluar qué opción es más eficiente y adecuada para aplicaciones web sencillas, así como entender el impacto de cada tecnología en el rendimiento y la experiencia de usuario.
 
 
-## 📚 Bibliografía y Recursos
-
-A continuación, se presentan las principales herramientas, librerías y recursos que se han utilizado y consultado para el desarrollo y ejecución de este proyecto:
-
-### 🛠️ Herramientas y Plataformas
-
-- **Python 3.8+**  
-  Lenguaje de programación principal para el servidor y scripts.  
-  Instalación oficial: [python.org](https://www.python.org/downloads/)
-
-- **Flask**  
-  Microframework web en Python para crear el servidor Snake.  
-  Documentación: [flask.palletsprojects.com](https://flask.palletsprojects.com/)
-
-- **Docker**  
-  Plataforma para contenedores que permite empaquetar aplicaciones con sus dependencias.  
-  Documentación e instalación: [docs.docker.com](https://docs.docker.com/get-docker/)
-
-- **VirtualBox**  
-  Software para crear y manejar máquinas virtuales.  
-  Documentación e instalación: [virtualbox.org](https://www.virtualbox.org/wiki/Downloads)
-
-- **Jupyter Notebook**  
-  Entorno interactivo para análisis y visualización de datos con Python.  
-  Instalación: `pip install notebook`  
-  Documentación: [jupyter.org](https://jupyter.org/)
-
 ## ⚙️ Entorno de Pruebas
 
 - **Host**: Intel Core i3 9100F, 16 GB RAM, Windows 10
@@ -108,7 +81,33 @@ El servidor Flask se expone en localhost:5000 para acceder desde el navegador
         │           └── snake.js
 ```
 
----
+
+## 📚 Bibliografía y Recursos
+
+A continuación, se presentan las principales herramientas, librerías y recursos que se han utilizado y consultado para el desarrollo y ejecución de este proyecto:
+
+### 🛠️ Herramientas y Plataformas
+
+- **Python 3.8+**  
+  Lenguaje de programación principal para el servidor y scripts.  
+  Instalación oficial: [python.org](https://www.python.org/downloads/)
+
+- **Flask**  
+  Microframework web en Python para crear el servidor Snake.  
+  Documentación: [flask.palletsprojects.com](https://flask.palletsprojects.com/)
+
+- **Docker**  
+  Plataforma para contenedores que permite empaquetar aplicaciones con sus dependencias.  
+  Documentación e instalación: [docs.docker.com](https://docs.docker.com/get-docker/)
+
+- **VirtualBox**  
+  Software para crear y manejar máquinas virtuales.  
+  Documentación e instalación: [virtualbox.org](https://www.virtualbox.org/wiki/Downloads)
+
+- **Jupyter Notebook**  
+  Entorno interactivo para análisis y visualización de datos con Python.  
+  Instalación: `pip install notebook`  
+  Documentación: [jupyter.org](https://jupyter.org/)
 
 
 ## ⚙️ Requisitos
