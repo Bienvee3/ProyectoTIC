@@ -4,10 +4,39 @@ Este proyecto evalúa y compara el rendimiento entre una máquina virtual (Virtu
 
 ---
 
-## 🧠 Conceptos clave: VM vs Docker
+## 🖥️ ¿Qué son las máquinas virtuales y los contenedores? 🚢
 
-- **Máquinas virtuales (VM):** Emulan hardware completo con su propio sistema operativo. Aíslan por completo los entornos.
-- **Contenedores (Docker):** Comparten el kernel del host, son más ligeros y rápidos, pero con menor aislamiento.
+Para entender las diferencias entre los entornos donde se ejecuta el servidor Snake, es fundamental conocer qué son las máquinas virtuales (VM) y los contenedores, dos tecnologías usadas ampliamente para aislar aplicaciones y facilitar su despliegue.
+
+### 🖥️ Máquinas Virtuales (VM)
+
+Una máquina virtual es una emulación completa de un sistema operativo que corre sobre hardware físico, gestionada por un software llamado *hipervisor* (por ejemplo, VirtualBox o VMware). Cada VM incluye su propio núcleo (kernel), sistema operativo, librerías y aplicaciones, funcionando de manera independiente del sistema operativo anfitrión.
+
+- **Ventajas:**  
+  - 🔒 Alto nivel de aislamiento y seguridad, pues cada VM es un sistema completo.  
+  - 💻 Puede ejecutar sistemas operativos distintos al del host (por ejemplo, Windows host con Linux guest).  
+  - ⚙️ Ideal para aplicaciones que requieren un entorno específico o un kernel modificado.
+
+- **Desventajas:**  
+  - 🐘 Consumo considerable de recursos (CPU, memoria, almacenamiento).  
+  - 🕒 Inicio y parada más lentos comparados con contenedores.
+
+### 🚢 Contenedores
+
+Los contenedores, como los gestionados por Docker, son una forma más ligera de virtualización a nivel de sistema operativo. En lugar de virtualizar todo un sistema operativo, comparten el núcleo del host y aíslan únicamente los procesos y recursos necesarios para ejecutar la aplicación.
+
+- **Ventajas:**  
+  - ⚡ Uso eficiente de recursos, arrancan y se detienen rápidamente.  
+  - 📦 Facilitan la portabilidad de aplicaciones al empaquetar dependencias y configuraciones.  
+  - ☁️ Ideales para despliegues escalables y microservicios.
+
+- **Desventajas:**  
+  - 🔓 Menor aislamiento comparado con VM, ya que comparten el kernel del host.  
+  - ⚠️ Limitaciones en personalización del sistema operativo o seguridad estricta.
+
+### 🎯 Relación con el proyecto
+
+En este proyecto se compara el rendimiento y uso de recursos de un servidor Snake corriendo en ambos entornos: una máquina virtual tradicional y un contenedor Docker. Esto permite evaluar qué opción es más eficiente y adecuada para aplicaciones web sencillas, así como entender el impacto de cada tecnología en el rendimiento y la experiencia de usuario.
 
 ---
 
