@@ -240,12 +240,36 @@ A partir de los datos de `results/`, se genera la siguiente gráfica:
 Esto indica que **Docker es más liviano** para esta tarea, reduciendo el uso de recursos del sistema en comparación con una VM tradicional. Sin embargo, los resultados pueden variar según el contexto y carga específica.
 
 
-## 🔒 Aislamiento, Seguridad y Portabilidad
+## 🔒 Aislamiento y Seguridad en este Proyecto
+En el contexto de este proyecto, el aislamiento se evaluó al ejecutar un mismo servidor Snake en dos entornos:
 
-- **Aislamiento**: Las máquinas virtuales ofrecen aislamiento completo a nivel de kernel, ideal para entornos críticos.
-- **Contenedores**: Docker es más ligero y rápido, pero menos aislado. Comparte el kernel con el host.
-- **Seguridad**: No se evaluaron mecanismos como AppArmor o SELinux, aunque Docker los soporta.
-- **Portabilidad**: Docker destaca en despliegue CI/CD, compatibilidad multiplataforma y versionado.
+- Máquina Virtual (VM)
+
+  - El servidor Flask corre sobre un sistema operativo Linux completo (VirtualBox).
+
+  - Ofrece un mayor nivel de aislamiento, ya que la VM tiene su propio kernel, sistema de archivos, usuarios y procesos.
+
+  - Ideal para pruebas que requieren emular un entorno más realista o separado completamente del host.
+
+  - Consumo de recursos más alto por la sobrecarga de virtualización completa.
+
+- Contenedor Docker
+
+  - El mismo servidor Flask se ejecuta como contenedor liviano.
+
+  - Comparte el kernel del sistema host, lo cual reduce el nivel de aislamiento.
+
+  - Es más eficiente en consumo de CPU y RAM, lo que lo hace excelente para entornos de desarrollo y despliegue rápido.
+
+  - Aunque comparte más con el host, se pueden usar medidas como AppArmor o seccomp para mitigar riesgos de seguridad.
+
+Conclusión:
+
+- Para este proyecto de benchmark, Docker ofrece una ejecución más rápida y eficiente del servidor Snake, aunque con menor aislamiento.
+
+- La VM proporciona un entorno más controlado y aislado, lo cual es útil en pruebas de compatibilidad y simulación de entornos reales.
+
+- La elección entre uno u otro dependerá del objetivo: rapidez y eficiencia (Docker) o aislamiento total y robustez (VM).
 
 ---
 
