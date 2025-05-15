@@ -117,7 +117,7 @@ A continuación, se presentan las principales herramientas, librerías y recurso
 
 ## ⚙️ Requisitos
 
-```
+```bash
 Python 3.8+
 
 Docker
@@ -141,6 +141,7 @@ pandas
 matplotlib
 jupyter
 ```
+
 ---
 
 ## 📦 Instalación de dependencias
@@ -185,6 +186,7 @@ Visita:
 ``` arduino
 http://localhost:5000/play
 ```
+
 Ahí podrás jugar una versión del juego Snake directamente desde el navegador despues de ejecutarlo en la terminal.
 
 ---
@@ -199,6 +201,7 @@ Asegúrate de que el servidor Snake esté corriendo. Luego, desde una nueva term
 cd vm_vs_docker_benchmark/scripts
 python benchmark_snake.py
 ```
+
 Este script realiza:
 
 - 📈 Medición del uso de CPU y RAM
@@ -268,7 +271,6 @@ Este proyecto compara el rendimiento de una misma carga de trabajo (`benchmark_s
 │ └── vm_vs_docker_comparison.png
 ```
 
-
 - `results/`: contiene los archivos CSV con los resultados de los benchmarks.
 - `notebooks/`: incluye notebooks de análisis y gráficos comparativos.
 
@@ -329,6 +331,7 @@ Esto indica que **Docker es más liviano** para esta tarea, reduciendo el uso de
 ---
 
 ## 🔒 Aislamiento y Seguridad en este Proyecto
+
 En el contexto de este proyecto, el aislamiento se evaluó al ejecutar un mismo servidor Snake en dos entornos:
 
 - Máquina Virtual (VM)
@@ -371,4 +374,5 @@ Conclusión:
 ---
 
 #### 📄 Licencia  
+
 Este proyecto está bajo la licencia MIT. Consulta el archivo LICENSE para más detalles.
