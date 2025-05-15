@@ -63,10 +63,12 @@ El servidor Flask se expone en localhost:5000 para acceder desde el navegador
         ├── .gitignore
         ├── results/
         │   ├── benchmark_snake_vm.csv
-        │   ├── benchmark_vm.png
+        │   ├── benchmark_vm_14_05.png
+        │   ├── benchmark_vm_15_05.png
         │   ├── benchmark_vm.txt
         │   ├── benchmark_snake_docker.csv
-        │   ├── benchmark_docker.png
+        │   ├── benchmark_docker_14_05.png
+        │   ├── benchmark_docker_15_05.png
         │   └── benchmark_docker.txt
         ├── notebooks/
         │   ├── vm_vs_docker_comparison.ipynb
