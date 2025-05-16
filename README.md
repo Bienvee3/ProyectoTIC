@@ -308,8 +308,30 @@ Se ejecutó un benchmark de 60 segundos sobre un juego Snake en Flask, midiendo 
 - La VM sigue siendo más pesada en carga aunque mejora respecto a la prueba del 14/05.
 - Latencias más consistentes en Docker.
 
----
+## 📈 Análisis Comparativo: 14/05 vs 15/05
 
+### 🗓️ Día 14/05
+
+- **Rendimiento general:** Ambos entornos (VM y Docker) muestran un rendimiento muy similar bajo carga.
+- **CPU:** Docker presentó una **ligera ventaja** en el uso de CPU, utilizando menos porcentaje que la VM.
+- **Latencia:** La VM mostró una **mayor variabilidad** en los tiempos de respuesta.
+- **Estabilidad:** Docker se comportó de forma más uniforme, mientras que la VM fue algo más inestable en recursos.
+- **Consumo de RAM:** Prácticamente iguales, con menos de 1% de diferencia.
+
+### 🗓️ Día 15/05
+
+- **Estabilidad:** Docker mantuvo un **comportamiento más estable** tanto en consumo de CPU como de RAM.
+- **Consumo de recursos:** La VM sigue siendo **más pesada en carga**, aunque mejoró respecto al día anterior.
+- **Latencias:** Docker mostró **latencias más consistentes**, mientras que la VM aún presentó cierta variación.
+- **Tendencias:** Se confirma que Docker, aunque más ligero, mantiene resultados estables y predecibles.
+
+### ✅ Conclusiones Comparativas
+
+- Docker destaca por su **estabilidad y eficiencia ligera**, tanto el 14 como el 15 de mayo.
+- La VM, aunque funcional, presenta **más oscilaciones en rendimiento** y un **mayor consumo de CPU**.
+- La diferencia entre días resalta una **mejora en la VM**, pero Docker sigue liderando en consistencia.
+- Para entornos de despliegue donde la predictibilidad y estabilidad son clave, Docker ofrece una **ventaja clara**.
+"""
 ## 📓 Análisis en notebooks
 
 En el notebook `notebooks/vm_vs_docker_comparison.ipynb` se realiza una comparación del uso de CPU entre la ejecución en VM y en Docker.
