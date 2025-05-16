@@ -331,7 +331,7 @@ Se ejecutó un benchmark de 60 segundos sobre un juego Snake en Flask, midiendo 
 - La VM, aunque funcional, presenta **más oscilaciones en rendimiento** y un **mayor consumo de CPU**.
 - La diferencia entre días resalta una **mejora en la VM**, pero Docker sigue liderando en consistencia.
 - Para entornos de despliegue donde la predictibilidad y estabilidad son clave, Docker ofrece una **ventaja clara**.
-"""
+
 ## 📓 Análisis en notebooks
 
 En el notebook `notebooks/vm_vs_docker_comparison.ipynb` se realiza una comparación del uso de CPU entre la ejecución en VM y en Docker.
