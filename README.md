@@ -155,47 +155,6 @@ pip install -r requirements.txt
 ```
 
 ---
-## 🐳 Usar imagen desde Docker Hub
-
-La forma más sencilla de ejecutar el servidor Snake es usando la imagen publicada en Docker Hub:
-
-##### 🔧 Requisitos
-
-- Tener Docker instalado: docs.docker.com/get-docker
-
-#### 📅 1. Descargar y correr la imagen
-
-```bash
-docker pull lukastrr/snake-server
-
-docker run -d -p 5000:5000 lukastrr/snake-server
-```
-Este comando:
-
-- 📦 Descarga la imagen `lukastrr/snake-server` desde Docker Hub
-
-- 🚀 Ejecuta el servidor Flask que corre el archivo `run_snake_server.py`
-
-- 🕹️ Sirve la interfaz del juego Snake (`/play`) usando `snake.html` y `snake.js`
-
-- 🌐 Expone el puerto 5000 en tu máquina local (accesible en el navegador)
-
-ℹ️ Nota: No es necesario tener una cuenta de Docker ni iniciar sesión para descargar y ejecutar esta imagen, ya que es pública.
-
-#### 🎮 2. Accede al juego
-
-Abre tu navegador en:
-
-```bash
-http://localhost:5000/play
-```
-
-#### ❌ Detener el servidor
-
-```bash
-docker ps          # Verifica el container ID
-docker stop <ID>   # Detén el contenedor
-```
 
 ## 🧪 Automatización del entorno VM
 
@@ -204,6 +163,7 @@ Puedes usar los siguientes scripts para automatizar la instalación del entorno:
 ```bash
 cd vm_vs_docker_benchmark/scripts
 bash vm_setup.sh         # Configuración para VM
+bash docker_setup.sh     # Configuración para Docker
 ```
 
 ---

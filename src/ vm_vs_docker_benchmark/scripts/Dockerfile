@@ -1,20 +1,14 @@
 FROM python:3.10-slim
 
-RUN apt update && apt install -y curl procps
+RUN apt update && apt install -y curl procps && \
+    pip install --upgrade pip && \
+    pip install flask requests psutil \
+    pip install -r requirements.txt
 
 WORKDIR /app
-
-# Copiar requirements.txt (está en ../requirements.txt desde scripts/)
-COPY ../requirements.txt .
-
-RUN pip install --upgrade pip
-RUN pip install -r requirements.txt
-
-# Copiar todo el contenido de web_snake_game dentro de /app/web_snake_game
-COPY web_snake_game /app/web_snake_game
-
-WORKDIR /app/web_snake_game
+COPY scripts /app/scripts
+WORKDIR /app/scripts
 
 EXPOSE 5000
 
-CMD ["python3", "run_snake_server.py"]
+CMD ["python3", "scripts/web_snake_game/run_snake_server.py"]
