@@ -1,24 +1,20 @@
 FROM python:3.10-slim
 
-# Instala utilidades y dependencias
 RUN apt update && apt install -y curl procps
 
-# Establece el directorio de trabajo
 WORKDIR /app
 
-# Copia los archivos necesarios
-COPY requirements.txt .
+# Copiar requirements.txt (está en ../requirements.txt desde scripts/)
+COPY ../requirements.txt .
+
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
-# Copia el resto del código
-COPY scripts /app/scripts
+# Copiar todo el contenido de web_snake_game dentro de /app/web_snake_game
+COPY web_snake_game /app/web_snake_game
 
-# Establece el nuevo directorio de trabajo
-WORKDIR /app/scripts
+WORKDIR /app/web_snake_game
 
-# Expone el puerto para Flask
 EXPOSE 5000
 
-# Comando por defecto
-CMD ["python3", "scripts/web_snake_game/run_snake_server.py"]
+CMD ["python3", "run_snake_server.py"]
