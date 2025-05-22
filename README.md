@@ -271,7 +271,9 @@ Este proyecto compara el rendimiento de una misma carga de trabajo (`benchmark_s
 │ └── benchmark_vm.png
 ├── notebooks/
 │ └── vm_vs_docker_comparison.ipynb
-│ └── vm_vs_docker_comparison.png
+│   ├── vm_vs_docker_comparison_cpu.png
+│   ├── vm_vs_docker_comparison_latency.png
+│   ├── vm_vs_docker_comparison_ram.png
 ```
 
 - `results/`: contiene los archivos CSV con los resultados de los benchmarks.
