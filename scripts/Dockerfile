@@ -11,4 +11,4 @@ WORKDIR /app/scripts
 
 EXPOSE 5000
 
-CMD ["python3", "scripts/web_snake_game/run_snake_server.py"]
+CMD ["python3", "web_snake_game/run_snake_server.py"]

@@ -52,38 +52,39 @@ El servidor Flask se expone en localhost:5000 para acceder desde el navegador
 
 ## 📁 Estructura actual del proyecto
 
-``` cpp
+```cpp
 .
+├── LICENSE
 ├── README.md
+├── install.ipynb
 ├── enunciadoProyecto.md
-└── src/
-    ├── install.ipynb
-    └── vm_vs_docker_benchmark/
-        ├── requirements.txt
-        ├── .gitignore
-        ├── results/
-        │   ├── benchmark_snake_vm.csv
-        │   ├── benchmark_vm_14_05.png
-        │   ├── benchmark_vm_15_05.png
-        │   ├── benchmark_vm.txt
-        │   ├── benchmark_snake_docker.csv
-        │   ├── benchmark_docker_14_05.png
-        │   ├── benchmark_docker_15_05.png
-        │   └── benchmark_docker.txt
-        ├── notebooks/
-        │   ├── vm_vs_docker_comparison.ipynb
-        │   └── vm_vs_docker_comparison.png
-        ├── scripts/
-        │   ├── benchmark_snake.py
-        │   ├── docker_setup.sh
-        │   ├── vm_setup.sh
-        │   ├── Dockerfile
-        │   └── web_snake_game/
-        │       ├── run_snake_server.py
-        │       ├── templates/
-        │       │   └── snake.html
-        │       └── static/
-        │           └── snake.js
+├── requirements.txt
+├── .gitignore
+├── notebooks/
+│   ├── vm_vs_docker_comparison.ipynb
+│   ├── vm_vs_docker_comparison_cpu.png
+│   ├── vm_vs_docker_comparison_latency.png
+│   ├── vm_vs_docker_comparison_ram.png
+├── results/
+│   ├── benchmark_snake_docker.csv
+│   ├── benchmark_snake_docker.txt
+│   ├── benchmark_snake_vm.csv
+│   ├── benchmark_snake_vm.txt
+│   ├── benchmark_docker_14_05.png
+│   ├── benchmark_docker_15_05.png
+│   ├── benchmark_vm_14_05.png
+│   ├── benchmark_vm_15_05.png
+├── scripts/
+│   ├── benchmark_snake.py
+│   ├── docker_setup.sh
+│   ├── vm_setup.sh
+│   ├── Dockerfile
+│   └── web_snake_game/
+│       ├── run_snake_server.py
+│       ├── templates/
+│       │   └── snake.html
+│       └── static/
+│           └── snake.js
 ```
 
 ---
@@ -161,7 +162,7 @@ pip install -r requirements.txt
 Puedes usar los siguientes scripts para automatizar la instalación del entorno:
 
 ```bash
-cd vm_vs_docker_benchmark/scripts
+cd scripts
 bash vm_setup.sh         # Configuración para VM
 bash docker_setup.sh     # Configuración para Docker
 ```
@@ -173,7 +174,7 @@ bash docker_setup.sh     # Configuración para Docker
 Para iniciar el servidor Snake con interfaz web:
 
 ```bash
-cd vm_vs_docker_benchmark/scripts/web_snake_game
+cd scripts/web_snake_game
 python run_snake_server.py
 ```
 
@@ -200,7 +201,7 @@ Ahí podrás jugar una versión del juego Snake directamente desde el navegador 
 Asegúrate de que el servidor Snake esté corriendo. Luego, desde una nueva terminal:
 
 ```bash
-cd vm_vs_docker_benchmark/scripts
+cd scripts
 python benchmark_snake.py
 ```
 
@@ -221,7 +222,7 @@ Los resultados se guardan en:
 Abre el notebook:
 
 ```bash
-cd vm_vs_docker_benchmark/notebooks
+cd notebooks
 jupyter notebook vm_vs_docker_comparison.ipynb
 ```
 
@@ -286,7 +287,7 @@ Se ejecutó un benchmark de 60 segundos sobre un juego Snake en Flask, midiendo 
 
 | 🖥️ Virtual Machine 14/05 | 🐳 Docker 14/05 |
 |--------------------------|------------------|
-| ![VM 14/05](src/%20vm_vs_docker_benchmark/results/benchmark_vm_14_05.png) | ![Docker 14/05](src/%20vm_vs_docker_benchmark/results/benchmark_docker_14_05.png) |
+| ![VM 14/05](results/benchmark_vm_14_05.png) | ![Docker 14/05](results/benchmark_docker_14_05.png) |
 
 🔎 **Observaciones 14/05**:
 
@@ -300,7 +301,7 @@ Se ejecutó un benchmark de 60 segundos sobre un juego Snake en Flask, midiendo 
 
 | 🖥️ Virtual Machine 15/05 | 🐳 Docker 15/05 |
 |---------------------------|-----------------|
-| ![VM 15/05](src/%20vm_vs_docker_benchmark/results/benchmark_vm_15_05.png) | ![Docker 15/05](src/%20vm_vs_docker_benchmark/results/benchmark_docker_15_05.png) |
+| ![VM 15/05](results/benchmark_vm_15_05.png) | ![Docker 15/05](results/benchmark_docker_15_05.png) |
 
 🔎 **Observaciones 15/05**:
 
@@ -339,13 +340,13 @@ En el notebook `notebooks/vm_vs_docker_comparison.ipynb` se realiza una comparac
 A partir de los datos de `results/`, se genera la siguiente gráfica:
 
 <p align="center">
-  <img src="src/ vm_vs_docker_benchmark/notebooks/vm_vs_docker_comparison_cpu.png" alt="Comparación de CPU: VM vs Docker" width="600"/>
+  <img src="notebooks/vm_vs_docker_comparison_cpu.png" alt="Comparación de CPU: VM vs Docker" width="600"/>
 </p>
 <p align="center">
-  <img src="src/ vm_vs_docker_benchmark/notebooks/vm_vs_docker_comparison_ram.png" alt="Comparación de RAM: VM vs Docker" width="600"/>
+  <img src="notebooks/vm_vs_docker_comparison_ram.png" alt="Comparación de RAM: VM vs Docker" width="600"/>
 </p>
 <p align="center">
-  <img src="src/ vm_vs_docker_benchmark/notebooks/vm_vs_docker_comparison_latency.png" alt="Comparación de LATENCY: VM vs Docker" width="600"/>
+  <img src="notebooks/vm_vs_docker_comparison_latency.png" alt="Comparación de LATENCY: VM vs Docker" width="600"/>
 </p>
 
 
