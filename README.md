@@ -334,15 +334,20 @@ Se ejecutó un benchmark de 60 segundos sobre un juego Snake en Flask, midiendo 
 
 ## 📓 Análisis en notebooks
 
-En el notebook `notebooks/vm_vs_docker_comparison.ipynb` se realiza una comparación del uso de CPU entre la ejecución en VM y en Docker.
+En el notebook `notebooks/vm_vs_docker_comparison.ipynb` se realiza una comparación del uso de CPU, RAM y LATENCY entre la ejecución en VM y en Docker.
 
 A partir de los datos de `results/`, se genera la siguiente gráfica:
 
 <p align="center">
-  <img src="src/ vm_vs_docker_benchmark/notebooks/vm_vs_docker_comparison.png" alt="Comparación de CPU: VM vs Docker" width="600"/>
+  <img src="src/ vm_vs_docker_benchmark/notebooks/vm_vs_docker_comparison_cpu.png" alt="Comparación de CPU: VM vs Docker" width="600"/>
+</p>
+<p align="center">
+  <img src="src/ vm_vs_docker_benchmark/notebooks/vm_vs_docker_comparison_ram.png" alt="Comparación de RAM: VM vs Docker" width="600"/>
+</p>
+<p align="center">
+  <img src="src/ vm_vs_docker_benchmark/notebooks/vm_vs_docker_comparison_latency.png" alt="Comparación de LATENCY: VM vs Docker" width="600"/>
 </p>
 
----
 
 ## 🔍 Interpretación
 
